@@ -9,7 +9,7 @@ public interface IngredienteService {
 
     void createIngrediente(Ingrediente newIngrediente);
 
-    void replaceIngrediente(Ingrediente newIngrediente, int id);
+    void replaceIngrediente(Ingrediente newIngrediente);
 
     List<Ingrediente> getAllIngrediente();
 

@@ -1,7 +1,7 @@
-package com.totalshakes.wstotalshakes.ingrediente;
+package com.totalshakes.wstotalshakes.adicional;
 
-import com.totalshakes.wstotalshakes.entities.Ingrediente;
-import com.totalshakes.wstotalshakes.repository.IngredienteRepository;
+import com.totalshakes.wstotalshakes.entities.Adicional;
+import com.totalshakes.wstotalshakes.repository.AdicionalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,38 +18,38 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/ingrediente")
-class IngredienteController {
-    private final IngredienteRepository repository;
-    private final IngredienteService service;
+@RequestMapping("/adicional")
+public class AdicionalController {
+    private final AdicionalRepository repository;
+    private final AdicionalService service;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    List<Ingrediente> allIngredientes() {
-        return service.getAllIngrediente();
+    List<Adicional> allIngredientes() {
+        return service.getAllIAdicional();
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    Ingrediente ingredienteById(@PathVariable int id) {
-        return service.getIngredientebyId(id);
+    Adicional adicionalById(@PathVariable int id) {
+        return service.getAdicionalbyId(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createIngrediente(@RequestBody Ingrediente newIngrediente) {
-        service.createIngrediente(newIngrediente);
+    public void createAdicional(@RequestBody Adicional newAdicional) {
+        service.createAdicional(newAdicional);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void replaceIngrediente(@RequestBody Ingrediente newIngrediente, @PathVariable int id) {
-        service.replaceIngrediente(newIngrediente);
+    public void replaceAdicional(@RequestBody Adicional newAdicional, @PathVariable int id) {
+        service.replaceAdicional(newAdicional);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void deleteIngrediente(@PathVariable int id) {
+    void deleteAdicional(@PathVariable int id) {
         repository.deleteById(id);
     }
 }

@@ -21,12 +21,13 @@ public class IngredienteServiceImpl implements IngredienteService {
     }
 
     @Override
-    public void replaceIngrediente(Ingrediente newIngrediente, int id) {
-     //   repository.findById(id)
-    //            .map(ingrediente -> {
-     //               ingrediente.setNome(newIngrediente.getNome());
-     //               return repository.save(newIngrediente);
-    //            });
+    public void replaceIngrediente(Ingrediente newIngrediente) {
+        var id = newIngrediente.getId();
+        repository.findById(id)
+                .map(ingrediente -> {
+                    ingrediente.setNome(newIngrediente.getNome());
+                    return repository.save(newIngrediente);
+                });
     }
 
     @Override
@@ -41,6 +42,6 @@ public class IngredienteServiceImpl implements IngredienteService {
 
     @Override
     public void deleteIngrediente(int id) {
-
+        repository.delete(getIngredientebyId(id));
     }
 }
